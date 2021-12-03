@@ -29,7 +29,7 @@ require_once 'dbconfig.php';
     </div>
     <div class="container">
       <div class="nav-panel">
-        <a href="">Home</a><br>
+        <a href="dashboard.php">Home</a><br>
         <a href="register.html">Add User</a><br>
         <a href="create_issue.php">New Issue</a><br>
         <a href="session_destroy.php">Logout</a>
