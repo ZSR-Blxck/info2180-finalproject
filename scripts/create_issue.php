@@ -12,7 +12,7 @@ require_once 'dbconfig.php';
 
 	$result = $conn -> prepare("SELECT firstname FROM Users");
 	$result -> execute();
-	$users = $result->fetch();
+	$users = $result->fetchAll();
 ?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -55,9 +55,9 @@ require_once 'dbconfig.php';
               <label>Assigned To</label>
               <div>
                 <select id="assigned" name="assign">
-				<?php foreach ($users as $row): ?>
-				    <option> <?echo "$row";?> </option>
-				<?php endforeach ?>
+          				<?php foreach ($users as $row):?>
+          				    <option> <?= $row["firstname"]?> </option>
+          				 <?php endforeach ?>
                 </select>
               </div>
             </div>
