@@ -52,7 +52,6 @@ h3{
 
 }
 a{
-  padding: 20px;
   text-decoration: none;
 }
 
@@ -67,10 +66,30 @@ a{
 }
 
 .main input{
-    width: 150%;
-    background-color: lightgrey;
     border: 1px solid grey;
     border-radius: 3px;
     padding: 5px;
     margin: 10px;
+}
+
+textarea{
+	width: 350px;
+	height: 100px;
+}
+
+.heading{
+	padding: 20px;
+}
+
+thead.tr{
+	color: solid grey;
+}
+th{
+	padding-top:1%;
+	padding-bottom:1%;
+}
+
+td{
+	padding-top:1%;
+	padding-bottom:1%;
 }

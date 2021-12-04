@@ -20,7 +20,7 @@ require_once 'dbconfig.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 	<title>BugMe Issue Tracker</title>
-	<link rel="stylesheet" type="text/css" href="styles/styles2.css">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
   </head>
   <body>
 	<div class= "nav-bar">
@@ -28,7 +28,7 @@ require_once 'dbconfig.php';
 	</div>
 	<div class="container">
 		<div class="nav-panel">
-			<a href="">Home</a><br>
+			<a href="dashboard.php">Home</a><br>
 			<a href="register.html">Add User</a><br>
 			<a href="create_issue.php">New Issue</a><br>
 			<a href="session_destroy.php">Logout</a>
