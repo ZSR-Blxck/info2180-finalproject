@@ -20,7 +20,7 @@ require_once 'dbconfig.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 	<title>BugMe Issue Tracker</title>
-	<link rel="stylesheet" type="text/css" href="style/styles2.css">
+	<link rel="stylesheet" type="text/css" href="styles/styles2.css">
   </head>
   <body>
 	<div class= "nav-bar">
