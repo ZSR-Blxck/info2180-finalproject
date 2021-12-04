@@ -21,8 +21,7 @@ require_once 'dbconfig.php';
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
   </head>
-
-  <header>
+  
   <body>
     <div class= "nav-bar">
       <h3>BugMe Issue Tracker</h3>  
@@ -35,7 +34,7 @@ require_once 'dbconfig.php';
         <a href="session_destroy.php">Logout</a>
     </div>
 
-	</header>
+	
     <section>
       <div class="main">
         <h2>Create Issue</h2>
@@ -76,7 +75,7 @@ require_once 'dbconfig.php';
             <div>
               <label>Priority</label>
               <div>
-                <select name="priority">
+                <select name="priority" id = "priority">
                   <option value="minor">Minor</option>
                   <option value="major">Major</option>
                   <option value="critical">Critical</option>
@@ -92,5 +91,6 @@ require_once 'dbconfig.php';
         </div>
       </div>
     </section>
+      </div>
   </body>
 </html>
