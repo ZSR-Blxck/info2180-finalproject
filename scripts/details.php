@@ -10,7 +10,9 @@ require_once 'dbconfig.php';
 		    die("Could not connect to the database $dbname :" . $pe->getMessage());
 		}
 
-	$result = $conn -> prepare("SELECT * FROM Issues");
+	$iss = $_SESSION['name'];
+
+	$result = $conn -> prepare("SELECT * FROM Issues WHERE title = '$iss'");
 	$result -> execute();
 	$issues = $result->fetchAll();
 ?>
@@ -20,7 +22,7 @@ require_once 'dbconfig.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
 	<title>BugMe Issue Tracker</title>
-	<link rel="stylesheet" type="text/css" href="styles/styles2.css">
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
   </head>
   <body>
 	<div class= "nav-bar">
@@ -38,18 +40,19 @@ require_once 'dbconfig.php';
 		<div>
 	      	<?php foreach ($issues as $row)
 				{
-			        <h2>Title</h2>
-			        <h4>Issue</h4>
-			        <p>Sample text. </p>
-					<div>
-				}?>
+			        echo'<h2>'.$row['title'].'</h2>';
+			       	echo '<h4>'.$row['description'].'</h4>';
+			        echo '<p>'. "Issue #",$row['id']. '</p>';
+					'<div>';
+				}
+			?>
 		</div>
 
 		<div>
 			<?php foreach ($issues as $row)
 				{	
-			        <h6>Issue Created</h6>
-			        <h6>Last Updated</h6>
+			        echo '<h6>'."Issue created on ". $row['created']. "by". $row['created_by'].'</h6>';
+			        echo '<h6>'."Last Updated on ".$row['updated'].'</h6>';
 				}?>
 		</div>
 
@@ -59,14 +62,15 @@ require_once 'dbconfig.php';
           <div>
 	          	<?php foreach ($issues as $row){
 
-		            <h5>Assigned To</h5>
-					<p>Sample</p>
-		            <h5>Type</h5>
-					<p>Sample</p>
-		            <h5>Priority</h5>
-					<p>Sample</p>
-		            <h5>Status</h5>
-					<p></p>
+		            echo '<h5>'."Assigned To:".'</h5>';
+		            echo $row['assigned_to'];
+		            echo '<h5>'."Type:".'</h5>';
+					echo $row['type'];
+		            echo '<h5>'."Priority:".'</h5>';
+					echo $row['priority'];
+		            echo '<h5>'."Status:".'</h5>';
+		            echo $row['status'];
+					'<p></p>';
 				}?>
           </div>
 		  <div>

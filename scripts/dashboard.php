@@ -36,7 +36,7 @@ require_once 'dbconfig.php';
       <div>
 		<div class="heading">
 			<h2>Issues</h2>
-			<button type="button">Create New Issue</button>
+			<button type="button"><a href="create_issue.php">Create New Issue</a><br></button>
 		</div>
         <div>
           <ul>
@@ -69,25 +69,22 @@ require_once 'dbconfig.php';
               </tr>
             </thead>
             <tbody>
-              <!-- <tr>
-                <td>Setup Logger</td>
-                <td>Bug</td>
-                <td>Open</td>
-                <td>Marsha Brady</td>
-                <td>2019-10-29</td>
-              </tr> -->
-              <?php foreach ($issues as $row)
-			        {
-			        	echo '<tr>';
-                		echo '<td>'.$row['title'].'</td>';
-		                echo '<td>'.$row['type'].'</td>';
-		                echo '<td>'.$row['status'].'</td>';
-		                echo '<td>'.$row['assigned_to'].'</td>';
-		                echo '<td>'.$row['created'].'</td>';
-		                echo '</tr>';
-			        	 // $dataTable .= $row['title'].'</td><td>'. $row['type'] . '</td><td>' . $row['status'] .'</td><td>' . $row['assigned_to'] .'</td><td>'. $row['created'] .'</td></tr>';
-			        }
-			   ?>
+
+              <form method="post" action="details.php">
+                <?php foreach ($issues as $row)
+    			        {
+    			        	echo '<tr>';
+                    		echo '<td>'.'<a href="details.php">' .$row['title'].'</a></td>';
+                        $_SESSION['name'] = $row['title'];
+    		                echo '<td>'.$row['type'].'</td>';
+    		                echo '<td>'.$row['status'].'</td>';
+    		                echo '<td>'.$row['assigned_to'].'</td>';
+    		                echo '<td>'.$row['created'].'</td>';
+    		                echo '</tr>';
+    			        }
+  			         ?>
+            </form>
+
             </tbody>
           </table>
         </div>
