@@ -10,7 +10,7 @@ require_once 'dbconfig.php';
 		    die("Could not connect to the database $dbname :" . $pe->getMessage());
 		}
 
-	$iss = $_SESSION['name'];
+	
 
 	$result = $conn -> prepare("SELECT * FROM Issues WHERE title = '$iss'");
 	$result -> execute();
