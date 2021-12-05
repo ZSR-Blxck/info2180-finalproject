@@ -29,6 +29,7 @@ require_once 'dbconfig.php';
 	<div class="container">
 		<div class="nav-panel">
 			<a href="dashboard.php">Home</a><br>
+			<a href="register.html">Add User</a><br>
 			<a href="create_issue.php">New Issue</a><br>
 			<a href="session_destroy.php">Logout</a>
 		</div>
@@ -40,13 +41,13 @@ require_once 'dbconfig.php';
         <div>
           <ul>
             <li>
-              <a>All</a>
+              <a href="dashboard.php">All</a>
             </li>
             <li>
-              <a>Open</a>
+              <a href="dashboard_open.php">Open</a>
             </li>
             <li>
-              <a>My Tickets</a>
+              <a href="dashboard_my_ticket.php">My Tickets</a>
             </li>
           </ul>
         <div>

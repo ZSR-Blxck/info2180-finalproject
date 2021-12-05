@@ -9,8 +9,7 @@ require_once 'dbconfig.php';
 			} catch (PDOException $pe) {
 		    die("Could not connect to the database $dbname :" . $pe->getMessage());
 		}
-
-	$result = $conn -> prepare("SELECT * FROM Issues");
+	$result = $conn -> prepare("SELECT * FROM Issues WHERE status = 'Open'");
 	$result -> execute();
 	$issues = $result->fetchAll();
 ?>
@@ -70,22 +69,20 @@ require_once 'dbconfig.php';
             </thead>
             <tbody>
 
-               <form method="post" action="details.php">
-                  <?php foreach ($issues as $row)
-      			        {
-      			        	echo '<tr>';
-                      		echo '<td>'.'<a href="details.php" name="name">' .$row['title'].'</a></td>';
-      		                echo '<td>'.$row['type'].'</td>';
-      		                echo '<td>'.$row['status'].'</td>';
-      		                echo '<td>'.$row['assigned_to'].'</td>';
-      		                echo '<td>'.$row['created'].'</td>';
-      		                echo '</tr>';
-      			        }
-    			         ?>
-
-                  <input type="hidden" name="name" value="var_value">
-                  <input type="submit">
-                </form>
+              <form method="post" action="details.php">
+                <?php foreach ($issues as $row)
+    			        {
+    			        	echo '<tr>';
+                    		echo '<td>'.'<a href="details.php">' .$row['title'].'</a></td>';
+                        $_SESSION['name'] = $row['title'];
+    		                echo '<td>'.$row['type'].'</td>';
+    		                echo '<td>'.$row['status'].'</td>';
+    		                echo '<td>'.$row['assigned_to'].'</td>';
+    		                echo '<td>'.$row['created'].'</td>';
+    		                echo '</tr>';
+    			        }
+  			         ?>
+            </form>
 
             </tbody>
           </table>
