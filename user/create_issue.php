@@ -1,18 +1,18 @@
 <?php
 session_start();
 require_once 'dbconfig.php';
-	try{
-		$conn = new PDO("mysql:host = $host; dbname=$dbname", $username,$password);
-		//header( "Location: Create-Issue.html");
-		$conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  try{
+    $conn = new PDO("mysql:host = $host; dbname=$dbname", $username,$password);
+    //header( "Location: Create-Issue.html");
+    $conn ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-			} catch (PDOException $pe) {
-		    die("Could not connect to the database $dbname :" . $pe->getMessage());
-		}
+      } catch (PDOException $pe) {
+        die("Could not connect to the database $dbname :" . $pe->getMessage());
+    }
 
-	$result = $conn -> prepare("SELECT firstname FROM Users");
-	$result -> execute();
-	$users = $result->fetchAll();
+  $result = $conn -> prepare("SELECT firstname FROM Users");
+  $result -> execute();
+  $users = $result->fetchAll();
 ?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -22,7 +22,6 @@ require_once 'dbconfig.php';
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
 
-  <header>
   <body>
     <div class= "nav-bar">
       <h3>BugMe Issue Tracker</h3>  
@@ -34,29 +33,29 @@ require_once 'dbconfig.php';
         <a href="session_destroy.php">Logout</a>
     </div>
 
-	</header>
-    <section>
       <div class="main">
-        <h2>Create Issue</h2>
+        <h1>Create Issue</h1>
         <div>
           <form method="post" name="form" action="issue.php">
             <div>
               <label>Title</label>
+              <div>
               <input type="text" name="title" id="issue-title">
-            </div>
+            </div></div>
 
             <div>
               <label>Description</label>
+            <div>
               <textarea name="desc" id="description"></textarea>
-            </div>
+            </div></div>
 
             <div>
               <label>Assigned To</label>
               <div>
                 <select id="assigned" name="assign">
-          				<?php foreach ($users as $row):?>
-          				    <option> <?= $row["firstname"]?> </option>
-          				 <?php endforeach ?>
+                  <?php foreach ($users as $row):?>
+                      <option> <?= $row["firstname"]?> </option>
+                   <?php endforeach ?>
                 </select>
               </div>
             </div>
@@ -90,6 +89,5 @@ require_once 'dbconfig.php';
           </form>
         </div>
       </div>
-    </section>
   </body>
 </html>

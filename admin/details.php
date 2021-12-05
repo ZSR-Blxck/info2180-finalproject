@@ -11,7 +11,8 @@ require_once 'dbconfig.php';
 		}
 
 	
-
+	$iss = $_SESSION['$title'];
+	
 	$result = $conn -> prepare("SELECT * FROM Issues WHERE title = '$iss'");
 	$result -> execute();
 	$issues = $result->fetchAll();

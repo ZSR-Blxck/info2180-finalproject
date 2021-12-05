@@ -7,9 +7,9 @@
     $_password = $_POST['password'];
    $_SESSION["login_user"]= $_POST['email'];
    
-   $user_check = $_SESSION['login_user'];
+   $user_check = $_SESSION["login_user"];
 
-   if(!isset($_SESSION['login_user'])){
+   if(!isset($_SESSION["login_user"])){
       header("location:login.php");
       die();
    }

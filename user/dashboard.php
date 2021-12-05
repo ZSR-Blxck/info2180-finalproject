@@ -13,6 +13,7 @@ require_once 'dbconfig.php';
 	$result = $conn -> prepare("SELECT * FROM Issues");
 	$result -> execute();
 	$issues = $result->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html style="font-size: 16px;">
@@ -34,7 +35,7 @@ require_once 'dbconfig.php';
 		</div>
       <div>
 		<div class="heading">
-			<h2>Issues</h2>
+			<h1>Issues</h1>
 			<button type="button"><a href="create_issue.php">Create New Issue</a><br></button>
 		</div>
         <div>
@@ -68,15 +69,22 @@ require_once 'dbconfig.php';
               </tr>
             </thead>
             <tbody>
-
+              <div>
                <form method="post" action="details.php">
                   <?php foreach ($issues as $row)
       			        {
       			        	echo '<tr>';
                       		echo '<td>'.'<a href="details.php" name="name">' .$row['title'].'</a></td>';
+                          $_SESSION['$title'] = $row['title'];
       		                echo '<td>'.$row['type'].'</td>';
       		                echo '<td>'.$row['status'].'</td>';
-      		                echo '<td>'.$row['assigned_to'].'</td>';
+                          $id = $row['assigned_to'];
+
+                          $res = $conn -> prepare ("SELECT * FROM Users WHERE firstname = '$id'");
+                          $res -> execute();
+                          $stmt = $res->fetchAll(); 
+
+                          echo'<td>'.$stmt['firstname'].'</td>';
       		                echo '<td>'.$row['created'].'</td>';
       		                echo '</tr>';
       			        }
@@ -85,6 +93,7 @@ require_once 'dbconfig.php';
                   <input type="hidden" name="name" value="var_value">
                   <input type="submit">
                 </form>
+              </div>
 
             </tbody>
           </table>

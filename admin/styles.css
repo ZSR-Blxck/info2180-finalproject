@@ -24,9 +24,11 @@ a h3{
     color: white;
 }
 
+
 .nav-panel{
   background-color: lightgray;
   height: 100%;
+  padding: 20px;
 }
 h1{
   font-size: 36px;

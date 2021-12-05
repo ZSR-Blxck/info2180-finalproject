@@ -35,7 +35,7 @@ require_once 'dbconfig.php';
 		</div>
       <div>
 		<div class="heading">
-			<h2>Issues</h2>
+			<h1>Issues</h1>
 			<button type="button"><a href="create_issue.php">Create New Issue</a><br></button>
 		</div>
         <div>

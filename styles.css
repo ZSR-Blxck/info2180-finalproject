@@ -24,9 +24,11 @@ a h3{
     color: white;
 }
 
+
 .nav-panel{
   background-color: lightgray;
   height: 100%;
+  padding: 50px;
 }
 h1{
   font-size: 36px;
@@ -91,6 +93,8 @@ textarea{
 
 .heading{
   padding: 20px;
+  display: inline-grid;
+  grid-template-columns: 80% auto;
 }
 
 thead.tr{
